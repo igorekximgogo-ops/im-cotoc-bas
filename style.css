@@ -545,3 +545,11 @@ button {
     animation: none;
   }
 }
+
+
+.no-response {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  animation: appear 650ms ease both;
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff4f6" />
+    <title>Для тебя ❤️</title>
+    <link rel="stylesheet" href="style.css?v=17" />
+    <script src="script.js?v=4" defer></script>
+  </head>
+  <body>
+    <button
+      class="background-easter-egg"
+      id="background-easter-egg"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls="easter-egg-message"
+    >
+      <span>Нажми сюда 💌</span>
+    </button>
+    <main class="page">
+      <section class="card" aria-live="polite">
+        <div class="sparkle sparkle-one" aria-hidden="true">✦</div>
+        <div class="sparkle sparkle-two" aria-hidden="true">♡</div>
+        <div class="floating-hearts" id="floating-hearts" aria-hidden="true">
+          <span class="floating-heart heart-one">♥</span>
+          <span class="floating-heart heart-two">♥</span>
+          <span class="floating-heart heart-three">♥</span>
+          <span class="floating-heart heart-four">♥</span>
+          <span class="floating-heart heart-five">♥</span>
+          <span class="floating-heart heart-six">♥</span>
+          <span class="floating-heart heart-seven">♥</span>
+          <span class="floating-heart heart-eight">♥</span>
+        </div>
+
+        <div class="quiz" id="quiz">
+          <p class="eyebrow">маленький вопросик для тебя</p>
+          <div class="progress" id="progress">Вопрос 1 из 5</div>
+          <h1 class="question" id="question"></h1>
+          <div class="button-arena" id="button-arena">
+            <button class="answer answer-yes" id="yes-button" type="button">
+              Да 💗
+            </button>
+            <button class="answer answer-no" id="no-button" type="button">
+              Нет 🙈
+            </button>
+          </div>
+        </div>
+
+        <div class="ending" id="ending" hidden>
+          <div class="heart" aria-label="Сердце с надписью В плюс И">
+            <img class="heart-image" src="heart-kitten.jpg" alt="Котёнок уютно устроился на большом розовом сердце" />
+            <span>В+И</span>
+          </div>
+          <p class="love-note">I love you</p>
+          <form class="code-form" id="code-form">
+            <label class="code-label" for="code-input">Введи секретный код 💌</label>
+            <div class="code-entry">
+              <input
+                class="code-input"
+                id="code-input"
+                name="code"
+                type="text"
+                placeholder="Напиши код"
+                autocomplete="off"
+                required
+              />
+              <button class="code-submit" type="submit">Открыть 💗</button>
+            </div>
+            <p class="code-error" id="code-error" role="alert" hidden>
+              Попробуй ещё раз 💕
+            </p>
+          </form>
+          <p class="ending-caption">и это только начало нашей истории 💕</p>
+        </div>
+
+        <div class="letter-page" id="letter-page" hidden>
+          <p class="letter-heart" aria-hidden="true">💌</p>
+          <h2 class="letter-title">Для тебя ❤️</h2>
+          <p class="letter-message">
+            Привет! Если ты читаешь это, значит, ты дошла до конца. Я хотел
+            сказать тебе, что люблю тебя. Я не хочу тебя терять и не хочу, чтобы
+            мы расставались. Больше всего я хочу встретиться с тобой и провести
+            день вместе и я хочу тебя: обнимать и целовать тебя.
+          </p>
+          <p class="letter-signature">Твой Игорь 💕</p>
+        </div>
+      </section>
+      <p class="footer-note">сделано с любовью Игорем ✨</p>
+    </main>
+    <dialog class="easter-egg-dialog" id="easter-egg-message" aria-labelledby="easter-egg-title">
+      <p class="letter-heart" aria-hidden="true">💌</p>
+      <h2 class="letter-title" id="easter-egg-title">Секретное послание ❤️</h2>
+      <p class="letter-message">
+        Ты — самое прекрасное, что случилось в моей жизни. Я очень тебя люблю! 💕
+      </p>
+      <form method="dialog">
+        <button class="code-submit" type="submit">Закрыть 💗</button>
+      </form>
+    </dialog>
+  </body>
+</html>

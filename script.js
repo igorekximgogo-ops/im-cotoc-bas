@@ -7,6 +7,108 @@ const questions = [
 ];
 
 const quiz = document.querySelector("#quiz");
+const noResponse = document.querySelector("#no-response");
+const ending = document.querySelector("#ending");
+const letterPage = document.querySelector("#letter-page");
+const floatingHearts = document.querySelector("#floating-hearts");
+const codeForm = document.querySelector("#code-form");
+const codeInput = document.querySelector("#code-input");
+const codeError = document.querySelector("#code-error");
+const backgroundEasterEgg = document.querySelector("#background-easter-egg");
+const easterEggMessage = document.querySelector("#easter-egg-message");
+const question = document.querySelector("#question");
+const progress = document.querySelector("#progress");
+const arena = document.querySelector("#button-arena");
+const yesButton = document.querySelector("#yes-button");
+const noButton = document.querySelector("#no-button");
+const tryAgainButton = document.querySelector("#try-again-button");
+let currentQuestion = 0;
+
+function placeButtons() {
+  const arenaWidth = arena.clientWidth;
+  const yesWidth = yesButton.offsetWidth;
+  const noWidth = noButton.offsetWidth;
+  const gap = 12;
+  const groupWidth = yesWidth + gap + noWidth;
+  const left = Math.max(0, (arenaWidth - groupWidth) / 2);
+
+  yesButton.style.left = left + "px";
+  noButton.style.left = Math.min(left + yesWidth + gap, arenaWidth - noWidth) + "px";
+  yesButton.style.top = "32px";
+  noButton.style.top = "32px";
+}
+
+function showQuestion() {
+  question.textContent = questions[currentQuestion];
+  progress.textContent = "Вопрос " + (currentQuestion + 1) + " из " + questions.length;
+  placeButtons();
+}
+
+yesButton.addEventListener("click", () => {
+  currentQuestion += 1;
+
+  if (currentQuestion === questions.length) {
+    quiz.hidden = true;
+    ending.hidden = false;
+    floatingHearts.classList.add("is-active");
+    return;
+  }
+
+  showQuestion();
+});
+
+noButton.addEventListener("click", () => {
+  currentQuestion = 0;
+  quiz.hidden = true;
+  noResponse.hidden = false;
+});
+
+tryAgainButton.addEventListener("click", () => {
+  currentQuestion = 0;
+  ending.hidden = true;
+  noResponse.hidden = true;
+  floatingHearts.classList.remove("is-active");
+  quiz.hidden = false;
+  showQuestion();
+});
+
+codeForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const enteredCode = codeInput.value.trim().toLocaleLowerCase("ru-RU").replace(/s+/g, " ");
+
+  if (enteredCode !== "я тебя люблю") {
+    codeError.hidden = false;
+    codeInput.setAttribute("aria-invalid", "true");
+    codeInput.focus();
+    return;
+  }
+
+  codeError.hidden = true;
+  ending.hidden = true;
+  letterPage.hidden = false;
+  floatingHearts.classList.add("is-active");
+});
+
+codeInput.addEventListener("input", () => {
+  codeError.hidden = true;
+  codeInput.removeAttribute("aria-invalid");
+});
+
+backgroundEasterEgg.addEventListener("click", () => {
+  easterEggMessage.showModal();
+});
+
+window.addEventListener("resize", placeButtons);
+
+showQuestion();const questions = [
+  "Ты меня любишь? ❤️",
+  "Ты скучаешь по мне? 🥺",
+  "Ты хотела бы сейчас быть рядом со мной? 🫶",
+  "Ты счастлива, что мы встретились? 💕",
+  "Хотела бы ко мне приехать? 🥰",
+];
+
+const quiz = document.querySelector("#quiz");
 const ending = document.querySelector("#ending");
 const letterPage = document.querySelector("#letter-page");
 const floatingHearts = document.querySelector("#floating-hearts");
